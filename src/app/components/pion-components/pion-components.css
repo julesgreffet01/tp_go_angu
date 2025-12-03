@@ -1,0 +1,13 @@
+.pion-component {
+  height: 5vh;
+  width: 5vh;
+  z-index: 150;
+  border-radius: 100%;
+}
+.black {
+  background-color: black;
+}
+
+.white {
+  background: white;
+}

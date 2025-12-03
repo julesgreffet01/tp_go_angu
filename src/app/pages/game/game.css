@@ -1,0 +1,41 @@
+.content_global {
+  display: flex;
+  flex-wrap: wrap;
+  width : 100vh;
+  background: red;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tableau_interface {
+  display: flex;
+  flex-wrap: wrap;
+  width : calc(80vh + 0.2*16vh);
+  position : absolute;
+}
+
+.tableau_interactif {
+  display: flex;
+  flex-wrap: wrap;
+  width : calc(90vh + 0.2*18vh);
+  position : relative;
+}
+
+.case_interactif {
+  width: calc(90vh / 9);
+  height: calc(90vh / 9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border : solid 0.2vh transparent;
+}
+
+.case {
+  width: calc(80vh / 8);
+  height: calc(80vh / 8);
+  border : solid 0.2vh black;
+  background-color: red;
+}
+
+
