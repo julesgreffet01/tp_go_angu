@@ -1,0 +1,14 @@
+.popup {
+  position: fixed;
+  top: 35vh;
+  left: 40vw;
+  width: 20vw;
+  height: 15vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: white;
+  border-radius: 15px;
+}

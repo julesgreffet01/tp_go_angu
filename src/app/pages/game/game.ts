@@ -1,11 +1,13 @@
 import {Component, signal} from '@angular/core';
 import {CaseObject} from '../../core/interfaces/case-object';
 import {PionComponents} from '../../components/pion-components/pion-components';
+import {PopupFinish} from '../../components/popup-finish/popup-finish';
 
 @Component({
   selector: 'app-game',
   imports: [
-    PionComponents
+    PionComponents,
+    PopupFinish
   ],
   templateUrl: './game.html',
   styleUrl: './game.css',
@@ -19,6 +21,7 @@ export class Game {
   scorej1 = signal<number>(0)
   scorej2 = signal<number>(0)
   pass = 0
+  gameFinished = signal<boolean>(false)
 
   constructor() {
     this.setAffichage();
@@ -76,12 +79,17 @@ export class Game {
   passAction(){
     this.pass += 1
     if(this.pass == 2){
-      this.finish()
+      this.gameFinished.set(true)
     }
     this.joueur.set(!this.joueur())
   }
 
-  finish(){
+  closePupupFinish(){
+    this.gameFinished.set(false)
+    this.resetGame()
+  }
+
+  resetGame(){
     this.setAffichage()
     this.setInteraction()
     this.joueur.set(false)
@@ -89,5 +97,6 @@ export class Game {
     this.scorej2.set(0);
     this.pass = 0
   }
+
 
 }
