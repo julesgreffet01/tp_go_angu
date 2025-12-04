@@ -1,52 +1,55 @@
-<div>
-  <p>c est au joueur
-    @if (this.joueur()) {
-      blanc
-    } @else {
-      noir
-    }
-  </p>
-  <div>
-    <div>score du joueur noir : {{ scorej2() }}</div>
-    <div>score du joueur blanc : {{ scorej1() }}</div>
-    <div (click)="passAction()">passer</div>
-  </div>
-</div>
+
 <div class="content_global">
-  <div class="tableau_interface">
-    @for (row of tabAffichage(); track $index) {
-      @for (case of row; track $index) {
-        <div class="case"></div>
-      }
-    }
-  </div>
-  <div class="tableau_interactif">
-    @for (row of tabInteraction(); track $index; let indexParent = $index) {
-      @for (case of row; track $index) {
-        @if (case.isClickable) {
-          <div (click)="putPion(indexParent, $index)" class="case_interactif">
-            @if (case.pion) {
-              <app-pion-components [color]="case.pion"/>
-            }
-          </div>
-        } @else {
-          <div (contextmenu)="unsetPion($event, indexParent, $index)" class="case_interactif">
-            @if (case.pion) {
-              <app-pion-components [color]="case.pion"/>
-            }
-          </div>
+  <div class="tableau_game">
+    <div class="tableau_interface">
+      @for (row of tabAffichage(); track $index) {
+        @for (case of row; track $index) {
+          <div class="case"></div>
         }
       }
-    }
+    </div>
+    <div class="tableau_interactif">
+      @for (row of tabInteraction(); track $index; let indexParent = $index) {
+        @for (case of row; track $index) {
+          @if (case.isClickable) {
+            <div (click)="putPion(indexParent, $index)" class="case_interactif">
+              @if (case.pion) {
+                <app-pion-components [color]="case.pion"/>
+              }
+            </div>
+          } @else {
+            <div (contextmenu)="unsetPion($event, indexParent, $index)" class="case_interactif">
+              @if (case.pion) {
+                <app-pion-components [color]="case.pion"/>
+              }
+            </div>
+          }
+        }
+      }
+    </div>
+  </div>
+  <div class="scoreboard_game">
+    <h4>c est au joueur
+      @if (this.joueur()) {
+        blanc
+      } @else {
+        noir
+      }
+    </h4>
+    <div>
+      <div>score du joueur noir : {{ scorej2() }}</div>
+      <div>score du joueur blanc : {{ scorej1() }}</div>
+      <div class="btn" (click)="passAction()">{{pass ? "terminer" : "passer"}}</div>
+    </div>
   </div>
 </div>
 
-@if(gameFinished()){
+@if (gameFinished()) {
   <div class="non-interactive-overlay">
   </div>
-  @if(scorej1() > scorej2()){
+  @if (scorej1() > scorej2()) {
     <app-popup-finish joueurWin="1" (gameFinish)="closePupupFinish()"></app-popup-finish>
-  } @else if(scorej1() < scorej2()){
+  } @else if (scorej1() < scorej2()) {
     <app-popup-finish joueurWin="2" (gameFinish)="closePupupFinish()"></app-popup-finish>
   } @else {
     <app-popup-finish joueurWin="3" (gameFinish)="closePupupFinish()"></app-popup-finish>

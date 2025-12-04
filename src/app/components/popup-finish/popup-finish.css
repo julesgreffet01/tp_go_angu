@@ -2,8 +2,6 @@
   position: fixed;
   top: 35vh;
   left: 40vw;
-  width: 20vw;
-  height: 15vh;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -11,4 +9,14 @@
   z-index: 1000;
   background: white;
   border-radius: 15px;
+  padding: 10px 70px;
+}
+
+.popup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }

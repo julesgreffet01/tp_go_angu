@@ -1,6 +1,12 @@
 <div class="popup">
   <div class="popup-content">
-    <h2>Bien vue au joueur {{joueurWin()}} qui a gagné</h2>
-    <button (click)="closePopup()">OK</button>
+    @if(joueurWin() == "1"){
+      <h2>le joueur blanc a gagné</h2>
+    } @else if (joueurWin() == "2") {
+      <h2>le joueur noir a gagné</h2>
+    } @else {
+      <h2>égalité</h2>
+    }
+    <div class="btn"  (click)="closePopup()">OK</div>
   </div>
 </div>

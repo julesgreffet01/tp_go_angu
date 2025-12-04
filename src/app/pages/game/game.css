@@ -1,24 +1,39 @@
 .content_global {
   display: flex;
   flex-wrap: wrap;
-  width : 100vh;
-  background: red;
+  width : 100%;
   justify-content: center;
   align-items: center;
   position: relative;
+  gap: 3rem;
+}
+
+.tableau_game {
+  background: #CEA346;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tableau_interface {
   display: flex;
   flex-wrap: wrap;
-  width : calc(80vh + 0.2*16vh);
+  width : 80vh;
   position : absolute;
+}
+
+.case {
+  width: calc(80vh / 8);
+  height: calc(80vh / 8);
+  border : solid 0.3vh #4A4A4A;
 }
 
 .tableau_interactif {
   display: flex;
   flex-wrap: wrap;
-  width : calc(90vh + 0.2*18vh);
+  width : 90vh;
   position : relative;
 }
 
@@ -31,13 +46,6 @@
   border : solid 0.2vh transparent;
 }
 
-.case {
-  width: calc(80vh / 8);
-  height: calc(80vh / 8);
-  border : solid 0.2vh black;
-  background-color: red;
-}
-
 .non-interactive-overlay {
   width: 100vw;
   height: 100vh;
@@ -45,7 +53,7 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 70%);
+  background-color: rgba(0, 0, 0, 60%);
 }
 
 
