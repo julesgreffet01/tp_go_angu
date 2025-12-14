@@ -74,6 +74,7 @@ export class Game {
     }
     this.tabInteraction()[indexParent][index].pion = false
     this.tabInteraction()[indexParent][index].isClickable = true;
+    this.pass = 0
   }
 
   passAction(){

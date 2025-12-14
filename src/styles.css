@@ -4,9 +4,10 @@
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: #505050;
   margin: 10px;
   overflow: hidden;
+  color: white;
 }
 
 .btn {
@@ -21,4 +22,6 @@ body {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  transition-duration: 0.4s;}
+  transition-duration: 0.4s;
+  font-weight: bold;
+}
