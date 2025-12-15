@@ -48,11 +48,11 @@
   <div class="non-interactive-overlay">
   </div>
   @if (scorej1() > scorej2()) {
-    <app-popup-finish joueurWin="1" (gameFinish)="closePupupFinish()"></app-popup-finish>
+    <app-popup-finish joueurWin="1" (gameFinish)="closePopupFinish()"></app-popup-finish>
   } @else if (scorej1() < scorej2()) {
-    <app-popup-finish joueurWin="2" (gameFinish)="closePupupFinish()"></app-popup-finish>
+    <app-popup-finish joueurWin="2" (gameFinish)="closePopupFinish()"></app-popup-finish>
   } @else {
-    <app-popup-finish joueurWin="3" (gameFinish)="closePupupFinish()"></app-popup-finish>
+    <app-popup-finish joueurWin="3" (gameFinish)="closePopupFinish()"></app-popup-finish>
   }
 }
 

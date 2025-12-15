@@ -1,0 +1,19 @@
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th>Vainqueur</th>
+      <th>Largeur du plateau</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (game of history(); track $index) {
+        <tr>
+          <td>{{ game.winner }}</td>
+          <td>{{ game.caseNumber }}</td>
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>

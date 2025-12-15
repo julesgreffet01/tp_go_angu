@@ -2,6 +2,8 @@ import {Component, signal} from '@angular/core';
 import {CaseObject} from '../../core/interfaces/case-object';
 import {PionComponents} from '../../components/pion-components/pion-components';
 import {PopupFinish} from '../../components/popup-finish/popup-finish';
+import {GameObject} from '../../core/interfaces/game-object';
+import {GameHistory} from '../../core/services/gameHistory';
 
 @Component({
   selector: 'app-game',
@@ -23,7 +25,7 @@ export class Game {
   pass = 0
   gameFinished = signal<boolean>(false)
 
-  constructor() {
+  constructor(private readonly historyGameService: GameHistory) {
     this.setAffichage();
     this.setInteraction();
   }
@@ -85,8 +87,14 @@ export class Game {
     this.joueur.set(!this.joueur())
   }
 
-  closePupupFinish(){
+  closePopupFinish(){
     this.gameFinished.set(false)
+    const game: GameObject = {
+      winner: this.scorej1() > this.scorej2() ? 'blanc' : this.scorej1() < this.scorej2() ? 'noir' : 'egalite',
+      caseNumber: this.nbCases() as 18 | 12 | 8,
+    }
+    let history = this.historyGameService.getAll()
+    this.historyGameService.update([...history, game])
     this.resetGame()
   }
 

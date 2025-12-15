@@ -8,6 +8,7 @@
   align-items: center;
   z-index: 1000;
   background: white;
+  color: black;
   border-radius: 15px;
   padding: 10px 70px;
 }
